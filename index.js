@@ -19,6 +19,17 @@ async function openTiktok() {
 
   // solve captcha
 
-  // get data
+  // wait for slider to apear 
+  await page.waitForTimeout(1000)
+  await page.waitForSelector('.fiQtnm');
+  console.log('slider is present');
+  await page.waitForTimeout(1000)
+  const img = await page.waitForSelector('#captcha-verify-image')
+  console.log('image is present');
+  console.log(img.currentSrc);
+  console.log(img.src);
+  
+  // get captcha img
+
 }
 openTiktok()
